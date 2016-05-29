@@ -1,4 +1,4 @@
-
+#Listing out instances quickly to run in local webserver and avoid login to console.
 
 aws ec2 describe-instances --region eu-central-1 --query 'Reservations[*].Instances[*].{ID:InstanceId,State:State.Name,IP:PublicIpAddress,PrivIP:PrivateIpAddress,Region:Placement.AvailabilityZone,Key:KeyName,Name:Tags[?Key==`Name`].Value[]}' --filter "Name=instance-state-name,Values=running" --output text > /var/www/html/dump2
 
