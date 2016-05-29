@@ -16,5 +16,3 @@ mv /var/opt/gitlab/backups/gitlab-secrets.json /var/opt/gitlab/backups/gitlab-se
 #Deleting files older than 7 days.
 /usr/bin/find /var/opt/gitlab/backups/ -mtime +7 -exec rm  {} \;
 
-
-<script src="https://gist.github.com/unnisathyarajan/29f2c7f232d74f181361de63a88ecd60.js"></script>
