@@ -1,4 +1,6 @@
+#Cleaning up unsued security groups in account.
 #Verify if Security Group is associated or not, if not then delete it after confirmation.
+
 
 
 aws ec2 describe-instances --region $1 --query 'Reservations[*].Instances[*].{ID:InstanceId,State:State.Name,IP:PublicIpAddress,Region:Placement.AvailabilityZone,Key:KeyName,SG:SecurityGroups}'   --output text | grep -B 1 $2  >> output-descibe-cmd.txt
