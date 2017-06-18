@@ -11,7 +11,7 @@ def main():
 
 #Fetching tmp creds from IAM Role is enforced because the EC2 instance has .aws/config file with IAM creds and boto3 would pick up those creds as it has higher precendance over IAM Role.
 
- tmp_cred_url = "http://169.254.169.254/latest/meta-data/iam/security-credentials/gitlab.alarabiya.cc/"
+ tmp_cred_url = "http://169.254.169.254/latest/meta-data/iam/security-credentials/myrolename/"
  response = urllib2.urlopen(tmp_cred_url)
  data = response.read()
  ACCESS_KEY = json.loads(data)['AccessKeyId']
