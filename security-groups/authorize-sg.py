@@ -17,12 +17,17 @@ def main():
 
  ec2 = boto3.resource('ec2', region_name=args.region)
  security_group = ec2.SecurityGroup(args.security_group)
- security_group.authorize_ingress(IpProtocol="tcp",FromPort=int(args.protocol_number),ToPort=int(args.protocol_number),CidrIp=args.ip)
+ response = security_group.authorize_ingress(IpProtocol="tcp",FromPort=int(args.protocol_number),ToPort=int(args.protocol_number),CidrIp=args.ip)
+ 
+ if response["ResponseMetadata"]["HTTPStatusCode"] == 200:
+  print "Rule Added"
+ else:
+  print "Error Adding Rule"
 
  with open("IPList.txt",'a') as Tmpfile:
   Tmpfile.write(args.ip + '\n')
 
-
+ 
 
 if __name__ == '__main__':
 
