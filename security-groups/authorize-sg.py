@@ -3,7 +3,6 @@ __author__ = "unnisathya"
 
 import argparse
 import boto3
-from  urllib2 import urlopen
 
 
 def main():
