@@ -1,0 +1,12 @@
+description "mysql-server container"
+author "unni"
+start on filesystem and started docker
+stop on runlevel [!2345]
+respawn
+pre-start script
+  /usr/bin/docker run --net=host -p 127.0.0.1:3306:3306 --name mysql-server -v /host/dir:/var/lib/mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql/mysql-server:5.5
+end script
+post-stop script
+  /usr/bin/docker stop mysql-server && docker rm mysql-server
+end script
+
