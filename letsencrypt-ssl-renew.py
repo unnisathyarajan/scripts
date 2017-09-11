@@ -23,7 +23,7 @@ def main():
 
 #Opening 443 to public
  try:
-  security_group.authorize_ingress(IpProtocol="tcp",FromPort=443,ToPort=443,CidrIp="0.0.0.0/32")
+  security_group.authorize_ingress(IpProtocol="tcp",FromPort=443,ToPort=443,CidrIp="0.0.0.0/0")
  except:
   print "Error Adding SG Rule."
 
@@ -34,7 +34,7 @@ def main():
   
 #Closing 443 to public
  try:
-  security_group.revoke_ingress(IpProtocol="tcp",FromPort=443,ToPort=443,CidrIp="0.0.0.0/32")
+  security_group.revoke_ingress(IpProtocol="tcp",FromPort=443,ToPort=443,CidrIp="0.0.0.0/0")
  except:
   print "Error Deleting SG Rule." 
 
