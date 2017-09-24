@@ -21,7 +21,6 @@ def main():
 
 #Add the SG Rule
  response = security_group.authorize_ingress(
-    CidrIp=args.ip,
     IpPermissions=[
         {
             'FromPort': int(args.port_number),
@@ -34,11 +33,6 @@ def main():
                 }
             ],
             'ToPort': int(args.port_number),
-            'UserIdGroupPairs': [
-                {
-                    'GroupId': args.security_group
-                },
-            ]
         },
     ],
  )

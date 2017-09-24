@@ -33,11 +33,6 @@ def main():
                 }
             ],
             'ToPort': int(args.port_number),
-            'UserIdGroupPairs': [
-                {
-                    'GroupId': args.security_group
-                },
-            ]
         },
     ],
  )
