@@ -24,7 +24,7 @@ $compress = @{
 write-host "Zipping the backup directory"
 Compress-Archive @compress
 write-host "Upload to Azure Blob"
-az storage blob upload --container-name dbbackup --file $backupcompressed\alteryx-backup-$date.zip --name alteryx\alteryx-backup-$date.zip --connection-string $azureconnstring
+az storage blob upload --container-name AzureBackupContainerName --file $backupcompressed\alteryx-backup-$date.zip --name alteryx\alteryx-backup-$date.zip --connection-string $azureconnstring
 
 write-host "Starting Alteryx"
 & $alteryx start
